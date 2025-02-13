@@ -1,0 +1,63 @@
+<h1>Actor #<%= @actor.id %> details</h1>
+
+<p><a href="/actors">Go back</a></p>
+
+<table>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><%= @actor.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Date of Birth</strong></td>
+    <td><%= @actor.dob %></td>
+  </tr>
+  <tr>
+    <td><strong>Bio</strong></td>
+    <td><%= @actor.bio %></td>
+  </tr>
+  <tr>
+    <td><strong>Image</strong></td>
+    <td><%= image_tag @actor.image, width: 200, alt: @actor.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Created at</strong></td>
+    <td><%= @actor.created_at %></td>
+  </tr>
+  <tr>
+    <td><strong>Updated at</strong></td>
+    <td><%= @actor.updated_at %></td>
+  </tr>
+</table>
+
+<h2>Filmography</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Director</th>
+      <th>Character name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.id %></td>
+        <td>
+          <% if movie.image.present? %>
+            <%= image_tag movie.image, width: 100, alt: movie.title %>
+          <% else %>
+            <p>No Image</p>
+          <% end %>
+        </td>
+        <td><%= movie.title %></td>
+        <td><%= movie.year %></td>
+        <td><%=  %></td>
+        <td><a href="/movies/<%= movie.id%>">Show details</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

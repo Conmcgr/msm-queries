@@ -1,0 +1,31 @@
+<h1> List of Movies </h1>
+
+<table style="border: 2px solid black; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="border: 2px solid black;">ID</th>
+      <th style="border: 2px solid black;">Image</th>
+      <th style="border: 2px solid black;">Title</th>
+      <th style="border: 2px solid black;">Year</th>
+      <th style="border: 2px solid black;">Director</th>
+      <th style="border: 2px solid black;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td style="border: 2px solid black;"><%= movie.id %></td>
+        <td style="border: 2px solid black;">
+          <%= image_tag movie.image, width: 100, alt: movie.title %>
+        </td>
+        <td style="border: 2px solid black;"><%= movie.title %></td>
+        <td style="border: 2px solid black;"><%= movie.year %></td>
+        <td style="border: 2px solid black;">
+          <% director = Director.find_by(id: movie.director_id) %>
+          <%= director.name%>
+        </td>
+        <td style="border: 2px solid black;"> <a href="/movies/<%= movie.id%>">Show details</a><td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

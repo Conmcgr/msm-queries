@@ -1,0 +1,26 @@
+<h1> List of Directors </h1>
+
+<table style="border: 2px solid black; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="border: 2px solid black;">ID</th>
+      <th style="border: 2px solid black;">Image</th>
+      <th style="border: 2px solid black;">Name</th>
+      <th style="border: 2px solid black;">Date of Birth</th>
+      <th style="border: 2px solid black;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @directors.each do |director| %>
+      <tr>
+        <td style="border: 2px solid black;"><%= director.id %></td>
+        <td style="border: 2px solid black;">
+          <%= image_tag director.image, width: 100, alt: director.name %>
+        </td>
+        <td style="border: 2px solid black;"><%= director.name %></td>
+        <td style="border: 2px solid black;"><%= director.dob %></td>
+        <td style="border: 2px solid black;"> <a href="/directors/<%= director.id%>">Show details</a><td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

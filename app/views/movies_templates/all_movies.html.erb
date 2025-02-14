@@ -15,9 +15,7 @@
     <% @movies.each do |movie| %>
       <tr>
         <td style="border: 2px solid black;"><%= movie.id %></td>
-        <td style="border: 2px solid black;">
-          <%= image_tag movie.image, width: 100, alt: movie.title %>
-        </td>
+        <td style="border: 2px solid black;"><img src="<%=movie.image %>"></td>
         <td style="border: 2px solid black;"><%= movie.title %></td>
         <td style="border: 2px solid black;"><%= movie.year %></td>
         <td style="border: 2px solid black;">

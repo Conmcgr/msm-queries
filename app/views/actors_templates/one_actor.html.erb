@@ -55,7 +55,14 @@
         </td>
         <td><%= movie.title %></td>
         <td><%= movie.year %></td>
-        <td><%=  %></td>
+        <td>
+          <%director = @directors[movie.director_id]%>
+          <%= director.name %>
+        </td>
+        <td>
+          <%character = @character_names[movie.id]%>
+          <%= character %>
+        </td>
         <td><a href="/movies/<%= movie.id%>">Show details</a></td>
       </tr>
     <% end %>

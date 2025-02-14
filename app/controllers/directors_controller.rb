@@ -5,10 +5,16 @@ class DirectorsController < ApplicationController
   end
 
   def youngest
+    @youngest = Director.where.not(dob: nil).order(:dob).last
+    date = @youngest.dob
+    @birthday = "#{date.strftime('%B')} #{date.day.ordinalize}, #{date.year}"
     render({ :template => "directors_templates/youngest"})
   end
 
   def eldest
+    @eldest = Director.where.not(dob: nil).order(:dob).first
+    date = @eldest.dob
+    @birthday = "#{date.strftime('%B')} #{date.day.ordinalize}, #{date.year}"
     render({ :template => "directors_templates/eldest"})
   end
 
